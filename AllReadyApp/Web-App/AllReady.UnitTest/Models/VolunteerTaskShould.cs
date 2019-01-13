@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using AllReady.Models;
 using Xunit;
 
@@ -9,15 +9,15 @@ namespace AllReady.UnitTest.Models
         [Fact]
         public void IsClosed_ShouldBeTrue_IfEndDatePriorToCurrentDate()
         {
-            var sut = new VolunteerTask { EndDateTime = DateTime.UtcNow.AddDays(-1) };
-            Assert.True(sut.IsClosed);
+            var task = new VolunteerTask { EndDateTime = DateTime.UtcNow.AddDays(-1) };
+            Assert.True(task.IsClosed);
         }
 
         [Fact]
         public void IsClosed_ShouldBeFalse_IfEndDateLaterThanCurrentDate()
         {
-            var sut = new VolunteerTask { EndDateTime = DateTime.UtcNow.AddDays(1) };
-            Assert.False(sut.IsClosed);
+            var task = new VolunteerTask { EndDateTime = DateTime.UtcNow.AddDays(1) };
+            Assert.False(task.IsClosed);
         }
     }
 }
